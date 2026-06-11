@@ -1,0 +1,48 @@
+name: Validate
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-markdown:
+    name: Validate Markdown
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check profile README exists
+        run: test -f profile/README.md
+
+      - name: Check style guide compliance (no em dashes)
+        run: |
+          if grep -rn $'—' --include='*.md' .; then
+            echo "::error::Em dashes are banned by the writing style guide. Use a period, comma, or rewrite."
+            exit 1
+          fi
+          echo "No em dashes found."
+
+  # Gate job — single required status check for branch protection.
+  status:
+    name: Validate Code
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [validate-markdown]
+    steps:
+      - name: Check job results
+        run: |
+          if [[ "${{ needs.validate-markdown.result }}" != "success" ]]; then
+            echo "::error::validate-markdown: ${{ needs.validate-markdown.result }}"
+            exit 1
+          fi
+          echo "All checks passed."
