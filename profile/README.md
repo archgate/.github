@@ -22,4 +22,4 @@ archgate check
 
 ## Links
 
-Website: [archgate.dev](https://archgate.dev) · Docs: [cli.archgate.dev](https://cli.archgate.dev)
+Website: [archgate.dev](https://archgate.dev) · Docs: [cli.archgate.dev](https://cli.archgate.dev) · Community: [r/archgatedev](https://www.reddit.com/r/archgatedev)
