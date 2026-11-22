@@ -1,8 +1,10 @@
 # Archgate
 
-**Enterprise-grade linting and guardrails for AI work.**
+![Archgate turns architecture decisions into executable rules. Write decisions, guide coding agents, and check changes in your CLI, Git hooks, and CI.](assets/archgate.png)
 
-AI agents write code fast, but they don't know your rules. Archgate turns your team's decisions into executable checks: a lint step for architecture, conventions, and AI output. Agents read the rules before writing code, and `archgate check` blocks what slips through. In CI, in pre-commit hooks, and inside every major AI coding tool.
+**Enterprise-grade linting and guardrails for AI work.** Archgate turns your team's architecture decisions into executable checks. Coding agents can read your rules before they write code, and `archgate check` verifies changes locally, in pre-commit hooks, or in CI.
+
+## Try it
 
 ```bash
 curl -fsSL https://cli.archgate.dev/install-unix | sh
@@ -12,14 +14,12 @@ archgate check
 
 ## Start here
 
-| Repo | What it is |
-|------|------------|
-| [cli](https://github.com/archgate/cli) | The Archgate CLI. Free and open source. |
-| [awesome-adrs](https://github.com/archgate/awesome-adrs) | Ready-to-use ADRs for your project. |
-| [check-action](https://github.com/archgate/check-action) | GitHub Action that runs `archgate check` in CI. |
-| [setup-action](https://github.com/archgate/setup-action) | GitHub Action that installs the CLI. |
-| [studies](https://github.com/archgate/studies) | Reproducible governance studies and methodology. |
+| Repository | What it does |
+| --- | --- |
+| [CLI](https://github.com/archgate/cli) | Write Architecture Decision Records (ADRs) and run automated checks. |
+| [ADR library](https://github.com/archgate/awesome-adrs) | Import ready-to-use ADRs into your project. |
+| [Setup Action](https://github.com/archgate/setup-action) | Install the Archgate CLI in GitHub Actions. |
+| [Check Action](https://github.com/archgate/check-action) | Run architecture checks in GitHub Actions. |
+| [Studies](https://github.com/archgate/studies) | Explore reproducible governance studies and their methodology. |
 
-## Links
-
-Website: [archgate.dev](https://archgate.dev) · Docs: [cli.archgate.dev](https://cli.archgate.dev) · Community: [r/archgatedev](https://www.reddit.com/r/archgatedev)
+[Website](https://archgate.dev) · [Documentation](https://docs.archgate.dev) · [Community](https://www.reddit.com/r/archgatedev)
